@@ -1,15 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class hookBehaviour : MonoBehaviour
 {
+    public static hookBehaviour Instance { get; private set; }
     public float hookSpeed; //speed the hook moves horizontally
+    public bool invincibility = false;
+    public float powerUpTimer = 0f;
+    public SpriteRenderer hookSprite;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
         hookSpeed = 15; //speed the hook moves horizontally set to 15
+        hookSprite = GetComponent<SpriteRenderer>();
     }
 
 
@@ -37,5 +55,17 @@ public class hookBehaviour : MonoBehaviour
                 transform.position += Vector3.right * hookSpeed * Time.deltaTime; //move the x position right
             }
         }
+
+        if (!(Time.time < powerUpTimer))
+
+        {
+            invincibility = false;
+            hookSprite.color = Color.white;
+        }
+        else
+        {
+            hookSprite.color = Color.yellow;
+        }
+
     }
 }

@@ -21,6 +21,7 @@ public class fishBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Hook")) //ensure it is with the hook
         {
+            playerScore.Instance.incrementFishCounter();
             Destroy(gameObject); //destroy the fish, (will add a score mechanism for number of fish collect eventually, but this is just a prototype)
         }
     }
