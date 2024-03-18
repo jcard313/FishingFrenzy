@@ -15,10 +15,11 @@ public class trashBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) //if trash collides with hook, game over
     {
-        if (other.CompareTag("Hook")) //used to ensure hook was the collision
+        if (!hookBehaviour.Instance.invincibility && other.CompareTag("Hook")) //used to ensure hook was the collision
         {
             Application.Quit(); //no game over screen set up yet since its a prototype, so just exit the application
             //as an aside, this Application.Quit(); does not quit the game when in game editor, only affects when game is executed
+            // TODO JIHO: Remove Application.Quit(), show game over screen instead 
         }
     }
 
