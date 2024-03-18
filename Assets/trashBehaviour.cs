@@ -19,6 +19,7 @@ public class trashBehaviour : MonoBehaviour
         {
             Application.Quit(); //no game over screen set up yet since its a prototype, so just exit the application
             //as an aside, this Application.Quit(); does not quit the game when in game editor, only affects when game is executed
+            // TODO JIHO: Remove Application.Quit(), show game over screen instead 
         }
     }
 
