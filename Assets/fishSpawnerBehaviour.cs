@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class fishSpawnerBehaviour : MonoBehaviour
 {
-    public GameObject fish; //original fish object (its a prefab) used to make clones
+    public GameObject normalfish; //original fish object (its a prefab) used to make clones
+    public GameObject pufferfish; // Puffer Fish
+    public GameObject squid; // Squid
     public float fishSpawnInterval; //interval on which fish spawn
     private float fishNextSpawnTime; //nextSpawnTime of a fish
 
@@ -29,11 +31,26 @@ public class fishSpawnerBehaviour : MonoBehaviour
     {
         float xPosition = Random.Range(-13, 13); //xPosition of the next fish (random between -13, 13)
         float chance = Random.Range(0f, 100f); //will be used to determine if 1 or two fish spawn this time
+        float chanceFishType = Random.Range(0f, 100f); //will be used to determine which fish type to spawn
         GameObject fishInstance1; //will hold a new fish instance gameobject, so we can get the sprite
         SpriteRenderer fishSprite1; //will hold the sprite of that gameobject
         GameObject fishInstance2; //will hold a new fish instance gameobject, so we can get the sprite
         SpriteRenderer fishSprite2; //will hold the sprite of that gameobject
+        GameObject fish;
 
+        if(chanceFishType <= 8f) //8% chance for squid
+        {
+            fish = squid;
+
+        }
+        else if(chanceFishType <= 23f) //15% chance for puffer fish
+        {
+            fish = pufferfish;
+        }
+        else //77% chance for normal fish
+        {
+            fish = normalfish;
+        }
         if (chance <= 25f) //25% chance to spawn 2 fish at this time
         {
             fishInstance1 = Instantiate(fish, new Vector3(xPosition, -22, 0), Quaternion.identity); //create new fish

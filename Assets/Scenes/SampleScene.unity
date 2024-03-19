@@ -381,9 +381,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0d459fbbe198d4faccfbf9557cb3c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invincibility: 0
-  hookSprite: {fileID: 0}
   hookSpeed: 0
+  invincibility: 0
+  powerUpTimer: 0
+  hookSprite: {fileID: 0}
 --- !u!212 &579101075
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -576,6 +577,8 @@ MonoBehaviour:
   depthText: {fileID: 1540055206}
   scoreText: {fileID: 563736615}
   fishCounter: 0
+  pufferFishCounter: 0
+  squidCounter: 0
   score: 0
 --- !u!1 &645209138
 GameObject:
@@ -1087,7 +1090,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f03cafcbb66bd4fb9aba9d724e5740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fish: {fileID: 4606581979954895984, guid: c9c1e1707c7db4d40aba77dee211a06e, type: 3}
+  normalfish: {fileID: 4606581979954895984, guid: c9c1e1707c7db4d40aba77dee211a06e, type: 3}
+  pufferfish: {fileID: 4606581979954895984, guid: 2b55b5a4d262674459b67d2087487187, type: 3}
+  squid: {fileID: 4606581979954895984, guid: e6fea28ab9e93e34280afd077d61eb31, type: 3}
   fishSpawnInterval: 0
 --- !u!4 &2017657931
 Transform:
