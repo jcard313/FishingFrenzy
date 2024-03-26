@@ -1,36 +1,93 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class trashBehaviour : MonoBehaviour
 {
     public float trashRiseSpeed; //rising speed of the trash
+    public bool gameOver = false;
 
+    public int score; 
+    public int depth;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI depthText;
+    public static trashBehaviour Instance { get; private set; }
+
+    private playerScore scoreScript;
+    private GameOver gameOverScript;
 
     void Start()
     {
         trashRiseSpeed = 3.0f; //rising speed set to 3
+
+        scoreScript = FindObjectOfType<playerScore>();
+        gameOverScript = FindObjectOfType<GameOver>(); 
     }
 
 
-    void OnTriggerEnter2D(Collider2D other) //if trash collides with hook, game over
+    void OnTriggerEnter2D(Collider2D other)
+{
+    if (!hookBehaviour.Instance.invincibility && other.CompareTag("Hook"))
     {
-        if (!hookBehaviour.Instance.invincibility && other.CompareTag("Hook")) //used to ensure hook was the collision
-        {
-            Application.Quit(); //no game over screen set up yet since its a prototype, so just exit the application
-            //as an aside, this Application.Quit(); does not quit the game when in game editor, only affects when game is executed
-            // TODO JIHO: Remove Application.Quit(), show game over screen instead 
-        }
+        gameOver = true;
+        score = (int)scoreScript.score;
+        depth = (int)scoreScript.depth;
+
+        GameOver.Instance.Show(score, depth);
     }
+}
 
 
     // Update is called once per frame
     void Update()
+{
+    if (!gameOver)
     {
-        transform.position += Vector3.up * trashRiseSpeed * Time.deltaTime * speedMultiplier.Instance.speedMult; //update the trashs y coordinate
-        if (transform.position.y > 24) //if the trash is off the screen, destroy object to save memory
+        transform.position += Vector3.up * trashRiseSpeed * Time.deltaTime * speedMultiplier.Instance.speedMult;
+
+        if (transform.position.y > 24)
         {
-            Destroy(gameObject); //destroys the object
+            Destroy(gameObject);
         }
     }
+    else
+    {
+        GameOver gameOverInstance = FindObjectOfType<GameOver>();
+        if (gameOverInstance != null)
+        {
+            gameOverInstance.gameOverPanel.SetActive(true);
+        }
+
+        GameOver.Instance.gameOver2 = true;
+
+        // Stop coroutines in fishBehaviour
+        fishBehaviour[] fishBehaviours = FindObjectsOfType<fishBehaviour>();
+        foreach (fishBehaviour fish in fishBehaviours)
+        {
+            fish.StopAllCoroutines();
+        }
+
+        // Destroy UI elements
+        if (playerScore.Instance != null && playerScore.Instance.scoreText != null)
+        {
+            Destroy(playerScore.Instance.scoreText.gameObject);
+        }
+        if (playerScore.Instance != null && playerScore.Instance.depthText != null)
+        {
+            Destroy(playerScore.Instance.depthText.gameObject);
+        }
+
+
+        // Stop Update in fishBehaviour
+        fishBehaviour[] fishScripts = FindObjectsOfType<fishBehaviour>();
+        foreach (fishBehaviour fish in fishScripts)
+        {
+            fish.shouldUpdate = false;
+        }
+
+        // Stop Update in other scripts if necessary
+    }
+}
+
 }

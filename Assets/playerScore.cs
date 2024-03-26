@@ -12,6 +12,7 @@ public class playerScore : MonoBehaviour
     public int pufferFishCounter = 0;
     public int squidCounter = 0;
     public float score = 0;
+    public float depth = 0; // made the depth to public to display once the game is over by @Jiho
 
     void Awake()
     {
@@ -28,7 +29,7 @@ public class playerScore : MonoBehaviour
 
     void Update()
     {
-        float depth = Time.time * speedMultiplier.Instance.speedMult; //how I calculate the depth (time * speedMultiplier)
+        depth = Time.time * speedMultiplier.Instance.speedMult; //how I calculate the depth (time * speedMultiplier)
         depthText.text = "Depth: " + Mathf.RoundToInt(depth).ToString() + "m"; //prints the depth
 
         score = depth + 30 * fishCounter + 50*pufferFishCounter + 70*squidCounter;
