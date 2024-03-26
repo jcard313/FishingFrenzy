@@ -15,8 +15,9 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
-        InitializeDifficultyDropdown();
-        
+        InitializeDifficultyDropdown(); // initialize difficulty
+
+        // initialize all the buttons and assign each button with the corresponding methods.         
         startButton.onClick.AddListener(StartGame);
         settingButton.onClick.AddListener(settingMethod);
         cosmeticButton.onClick.AddListener(CosmeticMethod);

@@ -38,6 +38,7 @@ public class fishBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // update position if game is not over. 
         if (shouldUpdate)
         {
             transform.position += Vector3.up * fishSpeed * Time.deltaTime * speedMultiplier.Instance.speedMult; //move the fish horizontally (swimming)
@@ -64,7 +65,8 @@ public class fishBehaviour : MonoBehaviour
                 fishSprite.flipX = true; //then flip the fish to the left
             }
         }else{
-
+                // stop updating fish's positions. 
+                transform.position = transform.position;
         }
     }
 }

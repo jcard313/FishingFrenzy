@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
     public GameObject gameOverPanel;
     public static GameOver Instance { get; private set; }
 
-    public bool gameOver2 = false;
+    public bool gameOver = false;
 
     public Text gameOverText;
 
@@ -25,31 +25,34 @@ public class GameOver : MonoBehaviour
             Destroy(gameObject);
         }
 
-        transform.gameObject.SetActive(false);
+        transform.gameObject.SetActive(false); // initially deactivate the game over panel
     }
 
-    public void Show(int score, int depth)
+    public void Show()
     {
-        transform.gameObject.SetActive(true);
-        // gameOverText.text = "Game Over \n Score : " + score.ToString() + " \n Depth: " + depth.ToString();
+        transform.gameObject.SetActive(true); // activate the game over panel once game is over. 
     }
 
     public void RestartGame()
     {
+        // destroy hook item once restart, and then re-generate by loading new scene. 
         Destroy(hookBehaviour.Instance.gameObject);
-        SceneManager.UnloadSceneAsync("SampleScene");
         SceneManager.LoadScene("SampleScene");
+        playerScore.Instance.shouldUpdateScore = true; // restart updating score from 0. 
     }
 
 
     public void GoHome()
     {
+        // move scene to home, and destroy hook. 
         SceneManager.LoadScene("StartScreen");
+        Destroy(hookBehaviour.Instance.gameObject);
+
     }
 
     void Update()
     {
-        if (gameOver2)
+        if (gameOver)
         {
             if (gameOverPanel != null)
             {
