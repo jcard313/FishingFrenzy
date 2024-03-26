@@ -7,6 +7,7 @@ public class fishBehaviour : MonoBehaviour
     public float fishSpeed; //fish speed is the horizontal, automatic swim speed
     public SpriteRenderer fishSprite; //used to get the sprite
     public float fishRiseSpeed; //speed at which the fish rises
+    public string fishType; //Type of fish
 
 
     void Start()
@@ -21,6 +22,12 @@ public class fishBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Hook")) //ensure it is with the hook
         {
+            if (fishType == "NF") //normal fish
+            { playerScore.Instance.incrementFishCounter(); }
+            else if(fishType == "PF") //puffer fish
+            { playerScore.Instance.incrementPufferFishCounter(); }
+            else // fishType == "S" for squid
+            { playerScore.Instance.incrementSquidCounter(); }
             Destroy(gameObject); //destroy the fish, (will add a score mechanism for number of fish collect eventually, but this is just a prototype)
         }
     }
