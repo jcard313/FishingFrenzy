@@ -14,6 +14,8 @@ public class GameOver : MonoBehaviour
 
     public Text gameOverText;
 
+    [SerializeField] GameObject pauseButton;
+
     private void Awake()
     {
         if (Instance == null)
@@ -31,6 +33,7 @@ public class GameOver : MonoBehaviour
     public void Show()
     {
         transform.gameObject.SetActive(true); // activate the game over panel once game is over. 
+        pauseButton.GetComponent<Button>().interactable = false;
     }
 
     public void RestartGame()
