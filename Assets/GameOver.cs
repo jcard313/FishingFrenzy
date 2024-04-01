@@ -45,6 +45,7 @@ public class GameOver : MonoBehaviour
     public void GoHome()
     {
         // move scene to home, and destroy hook. 
+        AudioManager.Instance.PlaySound(0); //play main menu music
         SceneManager.LoadScene("StartScreen");
         Destroy(hookBehaviour.Instance.gameObject);
 

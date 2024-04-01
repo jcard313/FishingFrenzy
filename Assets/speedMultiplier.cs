@@ -12,7 +12,7 @@ public class speedMultiplier : MonoBehaviour
     {
         elapsedTime = 0f;
         speedMult = 1f;
-        difficultyLevel = 1; //0 = easy; 5 = hard
+        difficultyLevel = 1; //1 = easy; 5 = hard
     }
 
 

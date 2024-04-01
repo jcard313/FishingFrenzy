@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
+        AudioManager.Instance.PlaySound(0); //play main menu music
         InitializeDifficultyDropdown(); // initialize difficulty
 
         // initialize all the buttons and assign each button with the corresponding methods.         
@@ -29,6 +30,8 @@ public class MainMenu : MonoBehaviour
         // difficultyDropdown.ClearOptions();
 
         List<string> difficulties = new List<string> { "Easy", "Hard" };
+        speedMultiplier.Instance.difficultyLevel = 1;
+
         // difficultyDropdown.AddOptions(difficulties);
 
         // difficultyDropdown.value = 0;
@@ -50,20 +53,30 @@ public class MainMenu : MonoBehaviour
         // SceneManager.LoadScene("CosmeticScene");
     }
     public void DifficultyChanged(Dropdown dropdown)
-{
-    if (dropdown != null && dropdown.options != null && dropdown.options.Count > 0)
     {
-        Debug.Log($"Difficulty : {dropdown.options[dropdown.value].text}");
-        // change your difficulty logic
+        if (dropdown != null && dropdown.options != null && dropdown.options.Count > 0)
+        {
+            string selectedDifficulty = dropdown.options[dropdown.value].text;
+            Debug.Log($"Difficulty: {selectedDifficulty}");
 
-        // easy
+            if (selectedDifficulty == "Easy")
+            {
+                speedMultiplier.Instance.difficultyLevel = 1;
+                Debug.Log("Easy difficulty selected");
+            }
+            else if (selectedDifficulty == "Hard")
+            {
+                speedMultiplier.Instance.difficultyLevel = 5;
+                Debug.Log("Hard difficulty selected");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Dropdown or options are null.");
+        }
 
-        // hard
-    } else
-    {
-        Debug.LogWarning("Dropdown or options are null.");
+
     }
-}
 
 
     // Use this if you need, otherwise you may directly edit on DifficultyChanged method @Andrew

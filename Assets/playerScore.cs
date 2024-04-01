@@ -40,19 +40,52 @@ public class playerScore : MonoBehaviour
         }else{
             // else stop updating score. 
         }
+
+        if (hookBehaviour.Instance.doublePoints)
+        {
+            scoreText.color = Color.yellow;
+        }
+        else
+        {
+            scoreText.color = Color.white;
+        }
         
     }
 
     public void incrementFishCounter()
     {
-        fishCounter++;
+        if (hookBehaviour.Instance.doublePoints)
+        {
+            fishCounter++;
+            fishCounter++;
+        }
+        else
+        {
+            fishCounter++;
+        }
     }
     public void incrementPufferFishCounter()
     {
-        pufferFishCounter++;
+        if (hookBehaviour.Instance.doublePoints)
+        {
+            pufferFishCounter++;
+            pufferFishCounter++;
+        }
+        else
+        {
+            pufferFishCounter++;
+        }
     }
     public void incrementSquidCounter()
     {
-        squidCounter++;
+        if (hookBehaviour.Instance.doublePoints)
+        {
+            squidCounter++;
+            squidCounter++;
+        }
+        else
+        {
+            squidCounter++;
+        }
     }
 }

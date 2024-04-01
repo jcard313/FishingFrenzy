@@ -5,22 +5,29 @@ using UnityEngine;
 public class powerUp : MonoBehaviour
 {
     public float powerUpRiseSpeed;
-
+    public string powerUpType;
 
     void Start()
     {
         powerUpRiseSpeed = 4.0f;
-
+        
     }
 
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Hook"))
+        if (other.CompareTag("Hook") && powerUpType == "i")
         {
-
-            hookBehaviour.Instance.powerUpTimer = Time.time + 7.0f;
+            AudioManager.Instance.PlaySound(3);
+            hookBehaviour.Instance.ipowerUpTimer = Time.time + 7.0f;
             hookBehaviour.Instance.invincibility = true;
+            Destroy(gameObject);
+        }
+        if (other.CompareTag("Hook") && powerUpType == "d")
+        {
+            AudioManager.Instance.PlaySound(3);
+            hookBehaviour.Instance.dpowerUpTimer = Time.time + 7.0f;
+            hookBehaviour.Instance.doublePoints = true;
             Destroy(gameObject);
         }
     }
