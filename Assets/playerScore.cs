@@ -14,6 +14,8 @@ public class playerScore : MonoBehaviour
     public float score = 0;
     public float depth = 0; 
     public bool shouldUpdateScore = true;
+    public float highScore;
+    public TextMeshProUGUI highScoreText;
 
     void Awake()
     {
@@ -28,6 +30,12 @@ public class playerScore : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        highScore = PlayerPrefs.GetFloat("highscore");
+        highScoreText.text = "High Score: " + Mathf.RoundToInt(highScore).ToString();
+    }
+
     void Update()
     {
         // update score
@@ -37,8 +45,12 @@ public class playerScore : MonoBehaviour
 
             score = depth + 30 * fishCounter + 50*pufferFishCounter + 70*squidCounter;
             scoreText.text = "Score: " + Mathf.RoundToInt(score).ToString();
-        }else{
-            // else stop updating score. 
+
+            if (score>highScore) {
+                highScore = score;
+                PlayerPrefs.SetFloat("highScore", highScore);
+                highScoreText.text = "High Score: " + Mathf.RoundToInt(highScore).ToString();
+            }
         }
 
         if (hookBehaviour.Instance.doublePoints)
