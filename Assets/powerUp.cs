@@ -18,14 +18,14 @@ public class powerUp : MonoBehaviour
     {
         if (other.CompareTag("Hook") && powerUpType == "i")
         {
-            AudioManager.Instance.PlaySound(3);
+            SFXAudioManager.Instance.PlaySound(1);
             hookBehaviour.Instance.ipowerUpTimer = Time.time + 7.0f;
             hookBehaviour.Instance.invincibility = true;
             Destroy(gameObject);
         }
         if (other.CompareTag("Hook") && powerUpType == "d")
         {
-            AudioManager.Instance.PlaySound(3);
+            SFXAudioManager.Instance.PlaySound(1);
             hookBehaviour.Instance.dpowerUpTimer = Time.time + 7.0f;
             hookBehaviour.Instance.doublePoints = true;
             Destroy(gameObject);

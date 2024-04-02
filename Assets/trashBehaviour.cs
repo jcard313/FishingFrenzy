@@ -28,9 +28,11 @@ public class trashBehaviour : MonoBehaviour
     {
         if (!hookBehaviour.Instance.invincibility && other.CompareTag("Hook"))
         {
+            Destroy(speedMultiplier.Instance.gameObject);
+            Time.timeScale = 0f;
             // once the game is over, display the game over pop up. 
-            AudioManager.Instance.soundEffects[1].Stop(); //stop music
-            AudioManager.Instance.PlaySound(4); //play crash sound effect
+            MusicAudioManager.Instance.music[1].Stop(); //stop music
+            SFXAudioManager.Instance.PlaySound(2); //play crash sound effect
             gameOver = true;
             GameOver.Instance.Show();
         }

@@ -19,9 +19,8 @@ public class hookBehaviour : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
-        else if (Instance != this)
+        else
         {
             Destroy(gameObject);
         }
@@ -29,10 +28,11 @@ public class hookBehaviour : MonoBehaviour
 
     void Start()
     {
-        AudioManager.Instance.soundEffects[0].Stop(); //stop main menu music
-        AudioManager.Instance.PlaySound(1); //play background game music
+        MusicAudioManager.Instance.music[0].Stop(); //stop main menu music
+        MusicAudioManager.Instance.PlaySound(1); //play background game music
         hookSpeed = 15; //speed the hook moves horizontally set to 15
         hookSprite = GetComponent<SpriteRenderer>();
+        
     }
 
 

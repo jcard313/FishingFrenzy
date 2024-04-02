@@ -10,7 +10,7 @@ public class powerUpSpawner : MonoBehaviour
 
     void Start()
     {
-        powerUpSpawnInterval = 15.0f;
+        powerUpSpawnInterval = 8.0f;
         powerUpNextSpawnTime = Time.time + powerUpSpawnInterval;
     }
 

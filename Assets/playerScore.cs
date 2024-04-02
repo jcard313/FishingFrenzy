@@ -17,6 +17,16 @@ public class playerScore : MonoBehaviour
     public float highScore;
     public TextMeshProUGUI highScoreText;
 
+
+    public static void ReinitializeInstance()
+    {
+        if (Instance == null)
+        {
+            GameObject newPlayerScoreObject = new GameObject("PlayerScore");
+            Instance = newPlayerScoreObject.AddComponent<playerScore>();
+        }
+    }
+
     void Awake()
     {
         if (Instance == null)

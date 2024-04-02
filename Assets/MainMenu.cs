@@ -15,9 +15,9 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
-        AudioManager.Instance.PlaySound(0); //play main menu music
+        MusicAudioManager.Instance.PlaySound(0); //play main menu music
         InitializeDifficultyDropdown(); // initialize difficulty
-
+        Time.timeScale = 1f;
         // initialize all the buttons and assign each button with the corresponding methods.         
         startButton.onClick.AddListener(StartGame);
         settingButton.onClick.AddListener(settingMethod);
@@ -28,7 +28,6 @@ public class MainMenu : MonoBehaviour
     public void InitializeDifficultyDropdown()
     {
         // difficultyDropdown.ClearOptions();
-
         List<string> difficulties = new List<string> { "Easy", "Hard" };
         speedMultiplier.Instance.difficultyLevel = 1;
 
@@ -40,16 +39,20 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        SFXAudioManager.Instance.PlaySound(0);
         SceneManager.LoadScene("SampleScene");
     }
     
     public void settingMethod(){
+        SFXAudioManager.Instance.PlaySound(0);
+
         // go to setting scene
         // SceneManager.LoadScene("SettingScene");
     }
 
     public void CosmeticMethod(){
-        // go to Cosmetic Scene
+        SFXAudioManager.Instance.PlaySound(0);
+                // go to Cosmetic Scene
         // SceneManager.LoadScene("CosmeticScene");
     }
     public void DifficultyChanged(Dropdown dropdown)
@@ -61,11 +64,13 @@ public class MainMenu : MonoBehaviour
 
             if (selectedDifficulty == "Easy")
             {
+                SFXAudioManager.Instance.PlaySound(0);
                 speedMultiplier.Instance.difficultyLevel = 1;
                 Debug.Log("Easy difficulty selected");
             }
             else if (selectedDifficulty == "Hard")
             {
+                SFXAudioManager.Instance.PlaySound(0);
                 speedMultiplier.Instance.difficultyLevel = 5;
                 Debug.Log("Hard difficulty selected");
             }

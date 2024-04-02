@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class SFXAudioManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
+    public static SFXAudioManager Instance { get; private set; }
     public AudioSource[] soundEffects;
 
     private void Awake()
