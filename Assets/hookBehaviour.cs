@@ -13,6 +13,8 @@ public class hookBehaviour : MonoBehaviour
     public float dpowerUpTimer = 0f;
     public SpriteRenderer hookSprite;
     public bool gameOver = false;
+    public Sprite defaultHookSprite;
+    public Sprite blueOceanHookSprite;
 
     void Awake()
     {
@@ -30,9 +32,17 @@ public class hookBehaviour : MonoBehaviour
     {
         MusicAudioManager.Instance.music[0].Stop(); //stop main menu music
         MusicAudioManager.Instance.PlaySound(1); //play background game music
+        int hookSelection = HookCosmeticSelection.hookSelection;
         hookSpeed = 15; //speed the hook moves horizontally set to 15
         hookSprite = GetComponent<SpriteRenderer>();
-        
+        if(hookSelection == 1)
+        {
+            hookSprite.sprite = blueOceanHookSprite;
+        }
+        else if(hookSelection == 0) 
+        {
+            hookSprite.sprite = defaultHookSprite;
+        }
     }
 
 
