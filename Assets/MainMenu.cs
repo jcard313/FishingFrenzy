@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
     {
         // difficultyDropdown.ClearOptions();
         List<string> difficulties = new List<string> { "Easy", "Hard" };
-        speedMultiplier.Instance.difficultyLevel = 1;
+        difficultyMode.Instance.difficultyLevel = 1;
 
         // difficultyDropdown.AddOptions(difficulties);
 
@@ -39,8 +39,8 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-/*        SFXAudioManager.Instance.PlaySound(0);
-*/        SceneManager.LoadScene("SampleScene");
+        SFXAudioManager.Instance.PlaySound(0);
+        SceneManager.LoadScene("SampleScene");
     }
     
     public void settingMethod(){
@@ -51,8 +51,8 @@ public class MainMenu : MonoBehaviour
     }
 
     public void CosmeticMethod(){
-/*        SFXAudioManager.Instance.PlaySound(0);
-*/        SceneManager.LoadScene("CosmeticsScreen");
+        SFXAudioManager.Instance.PlaySound(0);
+        SceneManager.LoadScene("CosmeticsScreen");
     }
     public void DifficultyChanged(Dropdown dropdown)
     {
@@ -64,13 +64,13 @@ public class MainMenu : MonoBehaviour
             if (selectedDifficulty == "Easy")
             {
                 SFXAudioManager.Instance.PlaySound(0);
-                speedMultiplier.Instance.difficultyLevel = 1;
+                difficultyMode.Instance.difficultyLevel = 1;
                 Debug.Log("Easy difficulty selected");
             }
             else if (selectedDifficulty == "Hard")
             {
                 SFXAudioManager.Instance.PlaySound(0);
-                speedMultiplier.Instance.difficultyLevel = 5;
+                difficultyMode.Instance.difficultyLevel = 5;
                 Debug.Log("Hard difficulty selected");
             }
         }

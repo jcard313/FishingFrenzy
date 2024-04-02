@@ -29,10 +29,12 @@ public class PauseScreen : MonoBehaviour
 
     public void QuitToMenu() 
     {
+        Destroy(speedMultiplier.Instance.gameObject);
         SFXAudioManager.Instance.PlaySound(0);
         Time.timeScale = 1f;
         // assuming the main menu is the scene 0
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("StartScreen");
+        Destroy(hookBehaviour.Instance.gameObject);
         MusicAudioManager.Instance.music[1].Stop();
     }
 

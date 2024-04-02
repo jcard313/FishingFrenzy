@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+using Unity.VisualScripting;
 
 public class playerScore : MonoBehaviour
 {
@@ -40,8 +42,16 @@ public class playerScore : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        depth = 0;
+    }
+
     void Start()
     {
+        speedMultiplier.Instance.ResetSpeedMultiplier();
+        highScoreText = GameObject.Find("HighScore").GetComponent<TextMeshProUGUI>();
+        scoreText = GameObject.Find("Score").GetComponent<TextMeshProUGUI>();
         highScore = PlayerPrefs.GetFloat("highscore");
         highScoreText.text = "High Score: " + Mathf.RoundToInt(highScore).ToString();
     }
@@ -49,8 +59,21 @@ public class playerScore : MonoBehaviour
     void Update()
     {
         // update score
-        if(shouldUpdateScore){
-            depth = Time.time * speedMultiplier.Instance.speedMult; //how I calculate the depth (time * speedMultiplier)
+        if (shouldUpdateScore) {
+            if (depthText == null)
+            {
+                depthText = GameObject.Find("DepthCounter").GetComponent<TextMeshProUGUI>();
+            }
+            if (scoreText == null)
+            {
+                scoreText = GameObject.Find("Score").GetComponent<TextMeshProUGUI>();
+            }
+            if (highScoreText == null)
+            {
+                highScoreText.text = "High Score: " + Mathf.RoundToInt(highScore).ToString();
+            }
+
+            depth = speedMultiplier.Instance.elapsedTime * speedMultiplier.Instance.speedMult; //how I calculate the depth (time * speedMultiplier)
             depthText.text = "Depth: " + Mathf.RoundToInt(depth).ToString() + "m"; //prints the depth
 
             score = depth + 30 * fishCounter + 50*pufferFishCounter + 70*squidCounter;

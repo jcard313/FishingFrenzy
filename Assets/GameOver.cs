@@ -35,11 +35,13 @@ public class GameOver : MonoBehaviour
 
     public void RestartGame()
     {
+        playerScore.Instance.depth = 0;
         // destroy hook item once restart, and then re-generate by loading new scene. 
         Destroy(hookBehaviour.Instance.gameObject);
         SceneManager.LoadScene("SampleScene");
         Time.timeScale = 1f;
-        //playerScore.Instance.shouldUpdateScore = true; // restart updating score from 0. 
+        speedMultiplier.Instance.ResetSpeedMultiplier();
+        playerScore.Instance.shouldUpdateScore = true; // restart updating score from 0. 
     }
 
 
