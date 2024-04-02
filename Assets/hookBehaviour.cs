@@ -8,7 +8,9 @@ public class hookBehaviour : MonoBehaviour
     public static hookBehaviour Instance { get; private set; }
     public float hookSpeed; //speed the hook moves horizontally
     public bool invincibility = false;
-    public float powerUpTimer = 0f;
+    public bool doublePoints = false;
+    public float ipowerUpTimer = 0f;
+    public float dpowerUpTimer = 0f;
     public SpriteRenderer hookSprite;
     public bool gameOver = false;
 
@@ -17,9 +19,8 @@ public class hookBehaviour : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
-        else if (Instance != this)
+        else
         {
             Destroy(gameObject);
         }
@@ -27,8 +28,11 @@ public class hookBehaviour : MonoBehaviour
 
     void Start()
     {
+        MusicAudioManager.Instance.music[0].Stop(); //stop main menu music
+        MusicAudioManager.Instance.PlaySound(1); //play background game music
         hookSpeed = 15; //speed the hook moves horizontally set to 15
         hookSprite = GetComponent<SpriteRenderer>();
+        
     }
 
 
@@ -59,7 +63,7 @@ public class hookBehaviour : MonoBehaviour
                 }
             }
 
-            if (!(Time.time < powerUpTimer))
+            if (!(Time.time < ipowerUpTimer))
 
             {
                 invincibility = false;
@@ -69,7 +73,14 @@ public class hookBehaviour : MonoBehaviour
             {
                 hookSprite.color = Color.yellow;
             }
-        }else{ // else the game is over, disable keys. 
+
+            if (!(Time.time < dpowerUpTimer))
+
+            {
+                doublePoints = false;
+            }
+        }
+        else{ // else the game is over, disable keys. 
             
         }
         

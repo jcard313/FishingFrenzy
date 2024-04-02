@@ -31,6 +31,7 @@ public class fishBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Hook")) //ensure it is with the hook
         {
+            SFXAudioManager.Instance.PlaySound(1);
             if (fishType == "NF") //normal fish
             { playerScore.Instance.incrementFishCounter(); }
             else if(fishType == "PF") //puffer fish

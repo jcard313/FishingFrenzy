@@ -7,7 +7,6 @@ using UnityEngine.Audio;
 
 public class SettingsManager : MonoBehaviour
 {
-
     [SerializeField] GameObject settingsScreen;
     [SerializeField] GameObject pauseScreen;
     public Slider soundEffectsSlider;
@@ -25,6 +24,7 @@ public class SettingsManager : MonoBehaviour
     }
     public void Back()
     {
+        SFXAudioManager.Instance.PlaySound(0);
         settingsScreen.SetActive(false);
         if(pauseScreen) {
             pauseScreen.SetActive(true);

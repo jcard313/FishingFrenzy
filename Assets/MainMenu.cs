@@ -15,8 +15,9 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
+        MusicAudioManager.Instance.PlaySound(0); //play main menu music
         InitializeDifficultyDropdown(); // initialize difficulty
-
+        Time.timeScale = 1f;
         // initialize all the buttons and assign each button with the corresponding methods.         
         startButton.onClick.AddListener(StartGame);
         settingButton.onClick.AddListener(settingMethod);
@@ -27,8 +28,9 @@ public class MainMenu : MonoBehaviour
     public void InitializeDifficultyDropdown()
     {
         // difficultyDropdown.ClearOptions();
-
         List<string> difficulties = new List<string> { "Easy", "Hard" };
+        speedMultiplier.Instance.difficultyLevel = 1;
+
         // difficultyDropdown.AddOptions(difficulties);
 
         // difficultyDropdown.value = 0;
@@ -37,33 +39,49 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        SFXAudioManager.Instance.PlaySound(0);
         SceneManager.LoadScene("SampleScene");
     }
     
     public void settingMethod(){
+        SFXAudioManager.Instance.PlaySound(0);
+
         // go to setting scene
         // SceneManager.LoadScene("SettingScene");
     }
 
     public void CosmeticMethod(){
-        // go to Cosmetic Scene
+        SFXAudioManager.Instance.PlaySound(0);
+                // go to Cosmetic Scene
         // SceneManager.LoadScene("CosmeticScene");
     }
     public void DifficultyChanged(Dropdown dropdown)
-{
-    if (dropdown != null && dropdown.options != null && dropdown.options.Count > 0)
     {
-        Debug.Log($"Difficulty : {dropdown.options[dropdown.value].text}");
-        // change your difficulty logic
+        if (dropdown != null && dropdown.options != null && dropdown.options.Count > 0)
+        {
+            string selectedDifficulty = dropdown.options[dropdown.value].text;
+            Debug.Log($"Difficulty: {selectedDifficulty}");
 
-        // easy
+            if (selectedDifficulty == "Easy")
+            {
+                SFXAudioManager.Instance.PlaySound(0);
+                speedMultiplier.Instance.difficultyLevel = 1;
+                Debug.Log("Easy difficulty selected");
+            }
+            else if (selectedDifficulty == "Hard")
+            {
+                SFXAudioManager.Instance.PlaySound(0);
+                speedMultiplier.Instance.difficultyLevel = 5;
+                Debug.Log("Hard difficulty selected");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Dropdown or options are null.");
+        }
 
-        // hard
-    } else
-    {
-        Debug.LogWarning("Dropdown or options are null.");
+
     }
-}
 
 
     // Use this if you need, otherwise you may directly edit on DifficultyChanged method @Andrew

@@ -17,6 +17,16 @@ public class playerScore : MonoBehaviour
     public float highScore;
     public TextMeshProUGUI highScoreText;
 
+
+    public static void ReinitializeInstance()
+    {
+        if (Instance == null)
+        {
+            GameObject newPlayerScoreObject = new GameObject("PlayerScore");
+            Instance = newPlayerScoreObject.AddComponent<playerScore>();
+        }
+    }
+
     void Awake()
     {
         if (Instance == null)
@@ -52,19 +62,52 @@ public class playerScore : MonoBehaviour
                 highScoreText.text = "High Score: " + Mathf.RoundToInt(highScore).ToString();
             }
         }
+
+        if (hookBehaviour.Instance.doublePoints)
+        {
+            scoreText.color = Color.yellow;
+        }
+        else
+        {
+            scoreText.color = Color.white;
+        }
         
     }
 
     public void incrementFishCounter()
     {
-        fishCounter++;
+        if (hookBehaviour.Instance.doublePoints)
+        {
+            fishCounter++;
+            fishCounter++;
+        }
+        else
+        {
+            fishCounter++;
+        }
     }
     public void incrementPufferFishCounter()
     {
-        pufferFishCounter++;
+        if (hookBehaviour.Instance.doublePoints)
+        {
+            pufferFishCounter++;
+            pufferFishCounter++;
+        }
+        else
+        {
+            pufferFishCounter++;
+        }
     }
     public void incrementSquidCounter()
     {
-        squidCounter++;
+        if (hookBehaviour.Instance.doublePoints)
+        {
+            squidCounter++;
+            squidCounter++;
+        }
+        else
+        {
+            squidCounter++;
+        }
     }
 }

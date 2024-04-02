@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -27,8 +28,12 @@ public class trashBehaviour : MonoBehaviour
     {
         if (!hookBehaviour.Instance.invincibility && other.CompareTag("Hook"))
         {
+            Destroy(speedMultiplier.Instance.gameObject);
+            Time.timeScale = 0f;
             // once the game is over, display the game over pop up. 
-            gameOver = true;        
+            MusicAudioManager.Instance.music[1].Stop(); //stop music
+            SFXAudioManager.Instance.PlaySound(2); //play crash sound effect
+            gameOver = true;
             GameOver.Instance.Show();
         }
     }
