@@ -39,8 +39,8 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SFXAudioManager.Instance.PlaySound(0);
-        SceneManager.LoadScene("SampleScene");
+/*        SFXAudioManager.Instance.PlaySound(0);
+*/        SceneManager.LoadScene("SampleScene");
     }
     
     public void settingMethod(){
@@ -51,9 +51,8 @@ public class MainMenu : MonoBehaviour
     }
 
     public void CosmeticMethod(){
-        SFXAudioManager.Instance.PlaySound(0);
-                // go to Cosmetic Scene
-        // SceneManager.LoadScene("CosmeticScene");
+/*        SFXAudioManager.Instance.PlaySound(0);
+*/        SceneManager.LoadScene("CosmeticsScreen");
     }
     public void DifficultyChanged(Dropdown dropdown)
     {

@@ -1024,6 +1024,8 @@ MonoBehaviour:
   dpowerUpTimer: 0
   hookSprite: {fileID: 579101075}
   gameOver: 0
+  defaultHookSprite: {fileID: 21300000, guid: bd057e427cc5ba847b2ccfd9babe0d2f, type: 3}
+  blueOceanHookSprite: {fileID: 21300000, guid: 5ebfa81aa467045448271bdc0f18587d, type: 3}
 --- !u!212 &579101075
 SpriteRenderer:
   m_ObjectHideFlags: 0
