@@ -18,7 +18,7 @@ public class playerScore : MonoBehaviour
     public bool shouldUpdateScore = true;
     public float highScore;
     public TextMeshProUGUI highScoreText;
-
+    public bool newHighScore = false;
 
     public static void ReinitializeInstance()
     {
@@ -83,6 +83,9 @@ public class playerScore : MonoBehaviour
                 highScore = score;
                 PlayerPrefs.SetFloat("highScore", highScore);
                 highScoreText.text = "High Score: " + Mathf.RoundToInt(highScore).ToString();
+                newHighScore = true;
+            } else {
+                newHighScore = false;
             }
         }
 
