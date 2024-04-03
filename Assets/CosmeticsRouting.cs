@@ -18,6 +18,5 @@ public class CosmeticsRouting : MonoBehaviour
         // move scene to home, and destroy hook. 
         SFXAudioManager.Instance.PlaySound(0);
         SceneManager.LoadScene("StartScreen");
-
     }
 }

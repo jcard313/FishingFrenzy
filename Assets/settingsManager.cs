@@ -41,5 +41,4 @@ public class SettingsManager : MonoBehaviour
     {
         musicMixer.SetFloat("Volume", musicSlider.value);
     }
-
 }

@@ -19,6 +19,7 @@ public class playerScore : MonoBehaviour
     public float highScore;
     public TextMeshProUGUI highScoreText;
     public bool newHighScore = false;
+    private float timeSinceLastToggle = 0f;
 
     public static void ReinitializeInstance()
     {
@@ -42,10 +43,6 @@ public class playerScore : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        depth = 0;
-    }
 
     void Start()
     {
@@ -91,13 +88,19 @@ public class playerScore : MonoBehaviour
 
         if (hookBehaviour.Instance.doublePoints)
         {
-            scoreText.color = Color.yellow;
+            timeSinceLastToggle += Time.deltaTime;
+
+            if (timeSinceLastToggle >= 0.25f)
+            {
+                scoreText.color = (scoreText.color == Color.white) ? Color.yellow : Color.white;
+                timeSinceLastToggle = 0f;
+            }
         }
         else
         {
             scoreText.color = Color.white;
+            timeSinceLastToggle = 0f;
         }
-        
     }
 
     public void incrementFishCounter()

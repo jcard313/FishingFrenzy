@@ -5,7 +5,6 @@ public class speedMultiplier : MonoBehaviour
     public static speedMultiplier Instance { get; private set; }
     public float elapsedTime;
     public float speedMult;
-    //public int difficultyLevel;
 
     void Awake()
     {
@@ -35,6 +34,5 @@ public class speedMultiplier : MonoBehaviour
     {
         elapsedTime = 0f;
         speedMult = 1f;
-        //difficultyLevel = 1;
     }
 }

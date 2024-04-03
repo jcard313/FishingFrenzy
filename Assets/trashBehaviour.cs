@@ -12,15 +12,10 @@ public class trashBehaviour : MonoBehaviour
     public TextMeshProUGUI depthText;
     public static trashBehaviour Instance { get; private set; }
 
-    private playerScore scoreScript;
-    private GameOver gameOverScript;
 
     void Start()
     {
         trashRiseSpeed = 3.0f; //rising speed set to 3
-
-        scoreScript = FindObjectOfType<playerScore>();
-        gameOverScript = FindObjectOfType<GameOver>(); 
     }
 
 
@@ -84,5 +79,4 @@ public class trashBehaviour : MonoBehaviour
             }
         }
     }
-
 }

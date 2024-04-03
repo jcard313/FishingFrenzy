@@ -20,5 +20,4 @@ public class InstructionsManager : MonoBehaviour
         SFXAudioManager.Instance.PlaySound(0);
         instructionsScreen.SetActive(false);
     }
-
 }

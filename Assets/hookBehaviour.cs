@@ -16,6 +16,7 @@ public class hookBehaviour : MonoBehaviour
     public Sprite defaultHookSprite;
     public Sprite blueOceanHookSprite;
     public Sprite biggerFishHookSprite;
+    private float timeSinceLastToggle = 0f;
 
     void Awake()
     {
@@ -79,14 +80,20 @@ public class hookBehaviour : MonoBehaviour
             }
 
             if (!(speedMultiplier.Instance.elapsedTime < ipowerUpTimer))
-
             {
                 invincibility = false;
                 hookSprite.color = Color.white;
+                timeSinceLastToggle = 0f;
             }
             else
             {
-                hookSprite.color = Color.yellow;
+                timeSinceLastToggle += Time.deltaTime;
+
+                if (timeSinceLastToggle >= 0.25f)
+                {
+                    hookSprite.color = (hookSprite.color == Color.white) ? Color.yellow : Color.white;
+                    timeSinceLastToggle = 0f;
+                }
             }
 
             if (!(speedMultiplier.Instance.elapsedTime < dpowerUpTimer))
@@ -95,10 +102,5 @@ public class hookBehaviour : MonoBehaviour
                 doublePoints = false;
             }
         }
-        else{ // else the game is over, disable keys. 
-            
-        }
-        
-
-    }
+     }
 }

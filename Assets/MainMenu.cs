@@ -82,21 +82,4 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
-
-    // Use this if you need, otherwise you may directly edit on DifficultyChanged method @Andrew
-    // void updateDifficulty(// any variable requires
-    // ){
-    //     switch (difficulty){
-    //         case 0: // Easy
-    //             // easy settings
-    //             break;
-    //         case 1: // Hard
-    //             // hard setting
-    //             break;
-    //         default:
-    //             break;
-    //     }
-
-    // }
-    
 }

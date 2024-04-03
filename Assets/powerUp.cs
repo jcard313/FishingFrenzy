@@ -10,10 +10,8 @@ public class powerUp : MonoBehaviour
 
     void Start()
     {
-        powerUpRiseSpeed = 4.0f;
-        
+        powerUpRiseSpeed = 4.0f; 
     }
-
 
     void OnTriggerEnter2D(Collider2D other)
     {

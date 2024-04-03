@@ -50,12 +50,10 @@ public class GameOver : MonoBehaviour
         MusicAudioManager.Instance.PlaySound(0); //play main menu music
         SceneManager.LoadScene("StartScreen");
         Destroy(hookBehaviour.Instance.gameObject);
-
     }
 
     void Update()
     {
-
         if(playerScore.Instance.newHighScore) {
             newHighScoreText.SetActive(true);
         } else {
