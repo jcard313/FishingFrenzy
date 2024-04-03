@@ -12,6 +12,7 @@ public class PauseScreen : MonoBehaviour
 
     public void Pause()
     {
+        // play sound effect and show pause menu
         MusicAudioManager.Instance.music[1].Pause();
         SFXAudioManager.Instance.PlaySound(0);
         pauseScreen.SetActive(true);
@@ -20,6 +21,7 @@ public class PauseScreen : MonoBehaviour
 
     public void Resume()
     {
+        // play sound effect and close pause menu
         MusicAudioManager.Instance.music[1].UnPause();
         SFXAudioManager.Instance.PlaySound(0);
         pauseScreen.SetActive(false);
@@ -28,6 +30,7 @@ public class PauseScreen : MonoBehaviour
 
     public void QuitToMenu() 
     {
+        // load main menu, reset speed and reset speed and hook location
         Destroy(speedMultiplier.Instance.gameObject);
         SFXAudioManager.Instance.PlaySound(0);
         Time.timeScale = 1f;
@@ -38,11 +41,13 @@ public class PauseScreen : MonoBehaviour
 
     public void OpenSettings()
     {
+        // open settings menu
         SFXAudioManager.Instance.PlaySound(0);
         settingsScreen.SetActive(true);
     }
 
     public void Update() {
+        // open pause menu if pause key is pressed
         if(Input.GetKeyDown(pauseKey)) {
             Pause();
         }

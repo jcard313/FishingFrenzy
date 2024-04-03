@@ -16,6 +16,7 @@ public class SettingsManager : MonoBehaviour
 
 
     private void Start() {
+        // setting values of sound
         float value;
         soundEffectsMixer.GetFloat("Volume", out value);
         soundEffectsSlider.value = value;

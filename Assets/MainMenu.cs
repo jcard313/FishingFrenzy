@@ -29,14 +29,7 @@ public class MainMenu : MonoBehaviour
 
     public void InitializeDifficultyDropdown()
     {
-        // difficultyDropdown.ClearOptions();
-        List<string> difficulties = new List<string> { "Easy", "Hard" };
         difficultyMode.Instance.difficultyLevel = 1;
-
-        // difficultyDropdown.AddOptions(difficulties);
-
-        // difficultyDropdown.value = 0;
-        // difficultyDropdown.RefreshShownValue();
     }
 
     public void StartGame()
@@ -47,9 +40,6 @@ public class MainMenu : MonoBehaviour
     
     public void settingMethod(){
         SFXAudioManager.Instance.PlaySound(0);
-
-        // go to setting scene
-        // SceneManager.LoadScene("SettingScene");
     }
 
     public void CosmeticMethod(){

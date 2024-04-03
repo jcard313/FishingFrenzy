@@ -11,6 +11,7 @@ public class InstructionsManager : MonoBehaviour
 
     public void Back()
     {
+        // play sound and close instructions menu
         SFXAudioManager.Instance.PlaySound(0);
         instructionsScreen.SetActive(false);
     }
