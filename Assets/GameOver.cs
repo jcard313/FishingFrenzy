@@ -44,7 +44,6 @@ public class GameOver : MonoBehaviour
         playerScore.Instance.shouldUpdateScore = true; // restart updating score from 0. 
     }
 
-
     public void GoHome()
     {
         // move scene to home, and destroy hook. 

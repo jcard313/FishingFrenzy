@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public Button cosmeticButton;
     public Dropdown difficultyDropdown;
     public Button quitButton;
+    public GameObject settingsMenu;
 
     // any variables for difficulty 
 
@@ -40,6 +41,9 @@ public class MainMenu : MonoBehaviour
     
     public void settingMethod(){
         SFXAudioManager.Instance.PlaySound(0);
+        if(settingsMenu) {
+            settingsMenu.SetActive(true);
+        }
     }
 
     public void CosmeticMethod(){
