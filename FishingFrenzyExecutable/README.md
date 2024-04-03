@@ -1,6 +1,6 @@
 Game Name: Fishing Frenzy
 
-By: Andrew Totsis, Bizman Sawhney, Jiho Choi, Johann Cardenas
+By: Andrew Totsis, Bisman Sawhney, Jiho Choi, Johann Cardenas
 
 How To Play:
 
