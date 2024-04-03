@@ -1,5 +1,7 @@
 Game Name: Fishing Frenzy
 
+By: Andrew Totsis, Bizman, Jiho Choi, Johann Cardenas
+
 How To Play:
 
 To play the game you must avoid the trash (cans), while collecting difference species of fish. If you hit the trash, its game over for you. 
