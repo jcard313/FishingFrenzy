@@ -73,7 +73,7 @@ public class hookBehaviour : MonoBehaviour
                 }
             }
 
-            if (!(Time.time < ipowerUpTimer))
+            if (!(speedMultiplier.Instance.elapsedTime < ipowerUpTimer))
 
             {
                 invincibility = false;
@@ -84,7 +84,7 @@ public class hookBehaviour : MonoBehaviour
                 hookSprite.color = Color.yellow;
             }
 
-            if (!(Time.time < dpowerUpTimer))
+            if (!(speedMultiplier.Instance.elapsedTime < dpowerUpTimer))
 
             {
                 doublePoints = false;

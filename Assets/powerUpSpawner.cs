@@ -11,16 +11,16 @@ public class powerUpSpawner : MonoBehaviour
     void Start()
     {
         powerUpSpawnInterval = 8.0f;
-        powerUpNextSpawnTime = Time.time + powerUpSpawnInterval;
+        powerUpNextSpawnTime = speedMultiplier.Instance.elapsedTime + powerUpSpawnInterval;
     }
 
 
     void Update()
     {
-        if (Time.time >= powerUpNextSpawnTime)
+        if (speedMultiplier.Instance.elapsedTime >= powerUpNextSpawnTime)
         {
             SpawnPowerUp();
-            powerUpNextSpawnTime = Time.time + powerUpSpawnInterval;
+            powerUpNextSpawnTime = speedMultiplier.Instance.elapsedTime + powerUpSpawnInterval;
         }
     }
 

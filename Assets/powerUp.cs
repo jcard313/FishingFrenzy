@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class powerUp : MonoBehaviour
 {
+    public GameObject bubblePrefab;
     public float powerUpRiseSpeed;
     public string powerUpType;
 
@@ -19,15 +20,17 @@ public class powerUp : MonoBehaviour
         if (other.CompareTag("Hook") && powerUpType == "i")
         {
             SFXAudioManager.Instance.PlaySound(1);
-            hookBehaviour.Instance.ipowerUpTimer = Time.time + 7.0f;
+            hookBehaviour.Instance.ipowerUpTimer = speedMultiplier.Instance.elapsedTime + 7.0f;
             hookBehaviour.Instance.invincibility = true;
+            Instantiate(bubblePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         if (other.CompareTag("Hook") && powerUpType == "d")
         {
             SFXAudioManager.Instance.PlaySound(1);
-            hookBehaviour.Instance.dpowerUpTimer = Time.time + 7.0f;
+            hookBehaviour.Instance.dpowerUpTimer = speedMultiplier.Instance.elapsedTime + 7.0f;
             hookBehaviour.Instance.doublePoints = true;
+            Instantiate(bubblePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

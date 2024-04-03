@@ -98,10 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e798ec33898094e8cccd4d6c6e6067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubblePrefab: {fileID: 1033626696385895346, guid: 650f61fbd43eadf4a8a4d25a476bf4a7, type: 3}
   fishSpeed: 4
   fishSprite: {fileID: 6710930918815161621}
   fishRiseSpeed: 0
   fishType: S
+  shouldUpdate: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!58 &794560995980831748
 CircleCollider2D:
   m_ObjectHideFlags: 0
