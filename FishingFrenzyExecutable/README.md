@@ -26,3 +26,12 @@ Move Right: Right Arrow Key
 Press UI Buttons: Hover and Click
 
 Pause: ESC or click pause button
+
+
+
+Important Note:
+This game is intended for mobile devices, however, for the sake of this project submission we built the executable for desktops since this was the
+median we used to develope it and since we aren't able to test it on mobile. Since on desktop the aspect ratio is 16:9 (but the game is meant for 
+portrait mode on mobile), there are black bars with some objects spawning in this visual area of the screen. There is no work around for this. Also
+the controls are intended to be touchscreen and tilt-dependant, however, on desktop this obviously cannot be achieved so the fix was to use the arrow
+keys and mouse clicks instead.
