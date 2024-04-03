@@ -3894,7 +3894,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cosmetic
+  m_Text: Cosmetics
 --- !u!222 &1172371774
 CanvasRenderer:
   m_ObjectHideFlags: 0
