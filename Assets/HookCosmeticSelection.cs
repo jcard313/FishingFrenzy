@@ -32,12 +32,13 @@ public class HookCosmeticSelection : MonoBehaviour
     {
         if (hookSelection == 0)
         {
+            SFXAudioManager.Instance.PlaySound(0); //play click sound
             defaultHookActiveText.gameObject.SetActive(true);
             blueOceanHookActiveText.gameObject.SetActive(false);
         }
         else if (hookSelection == 1)
         {
-
+            SFXAudioManager.Instance.PlaySound(0); //play click sound
             defaultHookActiveText.gameObject.SetActive(false);
             blueOceanHookActiveText.gameObject.SetActive(true);
 
@@ -46,7 +47,7 @@ public class HookCosmeticSelection : MonoBehaviour
 
     public void GoBack()
     {
-/*        MusicAudioManager.Instance.PlaySound(0); //play main menu music
-*/        SceneManager.LoadScene("CosmeticsScreen");
+        SFXAudioManager.Instance.PlaySound(0); //play click sound
+        SceneManager.LoadScene("CosmeticsScreen");
     }
 }
