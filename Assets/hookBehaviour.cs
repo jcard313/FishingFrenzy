@@ -15,6 +15,7 @@ public class hookBehaviour : MonoBehaviour
     public bool gameOver = false;
     public Sprite defaultHookSprite;
     public Sprite blueOceanHookSprite;
+    public Sprite biggerFishHookSprite;
 
     void Awake()
     {
@@ -42,6 +43,10 @@ public class hookBehaviour : MonoBehaviour
         else if(hookSelection == 0) 
         {
             hookSprite.sprite = defaultHookSprite;
+        }
+        else if (hookSelection == 2)
+        {
+            hookSprite.sprite = biggerFishHookSprite;
         }
     }
 
