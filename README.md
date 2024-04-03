@@ -1,4 +1,3 @@
-
 Game Name: Fishing Frenzy
 
 How To Play:
@@ -19,3 +18,4 @@ Controls:
 Move Left: Left Arrow Key
 Move Right: Right Arrow Key
 Press UI Buttons: Hover and Click
+Pause: ESC or click pause button
