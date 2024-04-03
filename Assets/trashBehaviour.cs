@@ -42,7 +42,7 @@ public class trashBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ifi the game is not over, trash will keep rising
+        // if the game is not over, trash will keep rising
         if (!gameOver)
         {
             transform.position += Vector3.up * trashRiseSpeed * Time.deltaTime * speedMultiplier.Instance.speedMult;

@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "FishingFrenzy5.sln"
+    "dotnet.defaultSolution": "FishingFrenzy.sln"
 }
