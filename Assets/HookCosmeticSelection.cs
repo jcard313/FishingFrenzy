@@ -9,6 +9,7 @@ public class HookCosmeticSelection : MonoBehaviour
     public static int hookSelection = 0;
     public Text defaultHookActiveText;
     public Text blueOceanHookActiveText;
+    public Text biggerFishHookActiveText;
 
     private void Start()
     {
@@ -28,6 +29,12 @@ public class HookCosmeticSelection : MonoBehaviour
         UpdateSelection();
     }
 
+    public void SelectedBiggerFish()
+    {
+        hookSelection = 2;
+        UpdateSelection();
+    }
+
     private void UpdateSelection() 
     {
         if (hookSelection == 0)
@@ -35,13 +42,21 @@ public class HookCosmeticSelection : MonoBehaviour
             SFXAudioManager.Instance.PlaySound(0); //play click sound
             defaultHookActiveText.gameObject.SetActive(true);
             blueOceanHookActiveText.gameObject.SetActive(false);
+            biggerFishHookActiveText.gameObject.SetActive(false);
         }
         else if (hookSelection == 1)
         {
-            SFXAudioManager.Instance.PlaySound(0); //play click sound
+            SFXAudioManager.Instance.PlaySound(0);
             defaultHookActiveText.gameObject.SetActive(false);
             blueOceanHookActiveText.gameObject.SetActive(true);
-
+            biggerFishHookActiveText.gameObject.SetActive(false);
+        }
+        else if (hookSelection == 2)
+        {
+            SFXAudioManager.Instance.PlaySound(0);
+            defaultHookActiveText.gameObject.SetActive(false);
+            blueOceanHookActiveText.gameObject.SetActive(false);
+            biggerFishHookActiveText.gameObject.SetActive(true);
         }
     }
 
