@@ -52,7 +52,7 @@ public class playerScore : MonoBehaviour
         speedMultiplier.Instance.ResetSpeedMultiplier();
         highScoreText = GameObject.Find("HighScore").GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.Find("Score").GetComponent<TextMeshProUGUI>();
-        highScore = PlayerPrefs.GetFloat("highscore");
+        highScore = PlayerPrefs.GetFloat("highScore");
         highScoreText.text = "High Score: " + Mathf.RoundToInt(highScore).ToString();
     }
 
