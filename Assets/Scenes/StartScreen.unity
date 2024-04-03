@@ -4925,25 +4925,24 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You are a fisherman trying to catch as much fish as possible!
+  m_text: 'You are a fisherman trying to catch as much fish as possible! Control
+    your hook with the left and right arrow keys.
 
-
-    Collect
-    fish to earn points!
-
-
-
-    Avoid trash at all costs!
+    Collect fish to earn points!
 
 
 
-    Watch out for powerful
-    power-ups!
+    Avoid
+    trash at all costs!
 
 
 
-    Earn points the deeper you go, however your hook will become
-    harder to control!'
+    Watch out for powerful power-ups!
+
+
+
+    Earn points
+    the deeper you go, however your hook will become harder to control!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
