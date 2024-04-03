@@ -12,6 +12,7 @@ public class GameOver : MonoBehaviour
     public bool gameOver = false;
     public Text gameOverText;
     [SerializeField] GameObject pauseButton;
+    [SerializeField] GameObject newHighScoreText;
 
     private void Awake()
     {
@@ -56,6 +57,12 @@ public class GameOver : MonoBehaviour
 
     void Update()
     {
+
+        if(playerScore.Instance.newHighScore) {
+            newHighScoreText.SetActive(true);
+        } else {
+            newHighScoreText.SetActive(false);
+        }
         if (gameOver)
         {
             if (gameOverPanel != null)

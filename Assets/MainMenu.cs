@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public Button settingButton;
     public Button cosmeticButton;
     public Dropdown difficultyDropdown;
+    public Button quitButton;
 
     // any variables for difficulty 
 
@@ -22,6 +23,7 @@ public class MainMenu : MonoBehaviour
         startButton.onClick.AddListener(StartGame);
         settingButton.onClick.AddListener(settingMethod);
         cosmeticButton.onClick.AddListener(CosmeticMethod);
+        quitButton.onClick.AddListener(QuitGame);
         difficultyDropdown.onValueChanged.AddListener(delegate { DifficultyChanged(difficultyDropdown); });
     }
 
@@ -82,6 +84,10 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void QuitGame(){
+        Debug.Log("Quit");
+        Application.Quit();
+    }
 
     // Use this if you need, otherwise you may directly edit on DifficultyChanged method @Andrew
     // void updateDifficulty(// any variable requires
