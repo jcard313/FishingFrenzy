@@ -12,6 +12,10 @@ public class CosmeticsRouting : MonoBehaviour
         SceneManager.LoadScene("HookCosmeticsScreen");
     }
 
+    public void RouteBgCosmetics()
+    {
+        SceneManager.LoadScene("BgCosmeticsScreen");
+    }
 
     public void GoHome()
     {

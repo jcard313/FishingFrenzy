@@ -3516,6 +3516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1598293233}
   - component: {fileID: 1598293232}
+  - component: {fileID: 1598293234}
   m_Layer: 0
   m_Name: background
   m_TagString: Untagged
@@ -3590,6 +3591,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1598293234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598293231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa40a74e113c2c4e9e4ad8de734aa60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundSpriteRenderer: {fileID: 1598293232}
+  defaultBackgroundSprite: {fileID: 21300000, guid: e980a74559c6d7048b806ab61ec40bbf, type: 3}
+  secondBackgroundSprite: {fileID: 21300000, guid: 81bfb969705f34b46b65f0999a87bbf2, type: 3}
 --- !u!1 &1648289545
 GameObject:
   m_ObjectHideFlags: 0
