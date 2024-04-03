@@ -12,17 +12,17 @@ public class fishSpawnerBehaviour : MonoBehaviour
     void Start()
     {
         fishSpawnInterval = 2.0f; //interval on which fish spawn (equal to 2)
-        fishNextSpawnTime = Time.time + fishSpawnInterval; //next spawn is the next time when we will spawn a fish
+        fishNextSpawnTime = speedMultiplier.Instance.elapsedTime + fishSpawnInterval; //next spawn is the next time when we will spawn a fish
     }
 
 
     void Update()
     {
-        if (Time.time >= fishNextSpawnTime) //if the time is more or equal to nextSpawnTime, we make a new fish
+        if (speedMultiplier.Instance.elapsedTime >= fishNextSpawnTime) //if the time is more or equal to nextSpawnTime, we make a new fish
         {
             float adjChance = Random.Range(-1f, 1f); //random chance element to make the following spawnTime 1 second more or less
             SpawnFish(); //spawn a new fish
-            fishNextSpawnTime = (Time.time + (fishSpawnInterval / speedMultiplier.Instance.speedMult) + adjChance / fishSpawnInterval / speedMultiplier.Instance.speedMult); //calculate nextSpawnTime
+            fishNextSpawnTime = (speedMultiplier.Instance.elapsedTime + (fishSpawnInterval / speedMultiplier.Instance.speedMult) + adjChance / fishSpawnInterval / speedMultiplier.Instance.speedMult); //calculate nextSpawnTime
         }
     }
 

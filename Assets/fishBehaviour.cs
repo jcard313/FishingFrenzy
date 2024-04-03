@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class fishBehaviour : MonoBehaviour
 {
+
+    public GameObject bubblePrefab;
     public float fishSpeed; //fish speed is the horizontal, automatic swim speed
     public SpriteRenderer fishSprite; //used to get the sprite
     public float fishRiseSpeed; //speed at which the fish rises
@@ -38,9 +40,14 @@ public class fishBehaviour : MonoBehaviour
             { playerScore.Instance.incrementPufferFishCounter(); }
             else // fishType == "S" for squid
             { playerScore.Instance.incrementSquidCounter(); }
+            Instantiate(bubblePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject); //destroy the fish, (will add a score mechanism for number of fish collect eventually, but this is just a prototype)
+            
         }
     }
+
+
+
 
 
     // Update is called once per frame

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class trashSpawnerBehaviour : MonoBehaviour
@@ -10,17 +11,17 @@ public class trashSpawnerBehaviour : MonoBehaviour
     void Start()
     {
         trashSpawnInterval = 1.0f; //spawn interval is 1
-        trashNextSpawnTime = Time.time + trashSpawnInterval; //time of the next spawn
+        trashNextSpawnTime = speedMultiplier.Instance.elapsedTime + trashSpawnInterval; //time of the next spawn
     }
 
 
     void Update()
     {
-        if (Time.time >= trashNextSpawnTime) //if time is greater than the next spawn time, then we need to spawn trash
+        if (speedMultiplier.Instance.elapsedTime >= trashNextSpawnTime) //if time is greater than the next spawn time, then we need to spawn trash
         {
             float adjChance = Random.Range(-1f, 1f); //random chance to affect the next spawn time for 1 or -1
             SpawnTrash(); //spawn the new trash
-            trashNextSpawnTime = Time.time + (trashSpawnInterval / speedMultiplier.Instance.speedMult) + (adjChance / speedMultiplier.Instance.speedMult); //calculate next spawn time for trash
+            trashNextSpawnTime = speedMultiplier.Instance.elapsedTime + (trashSpawnInterval / speedMultiplier.Instance.speedMult) + (adjChance / speedMultiplier.Instance.speedMult); //calculate next spawn time for trash
         }
     }
 

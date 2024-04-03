@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e09a1eb1bb02447a0251cd76c10422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubblePrefab: {fileID: 1033626696385895346, guid: 650f61fbd43eadf4a8a4d25a476bf4a7, type: 3}
   powerUpRiseSpeed: 0
   powerUpType: i
 --- !u!58 &-3859728456281635951

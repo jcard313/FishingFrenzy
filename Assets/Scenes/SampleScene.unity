@@ -1334,7 +1334,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elapsedTime: 0
   speedMult: 1
-  difficultyLevel: 3
 --- !u!4 &668600948
 Transform:
   m_ObjectHideFlags: 0
